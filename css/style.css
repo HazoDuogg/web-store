@@ -1117,6 +1117,74 @@ section {
     accent-color: var(--accent);
 }
 
+/* ===== CAROUSEL PRODUCT IMAGE ===== */
+.carousel-product-img {
+    position: absolute;
+    right: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 430px;
+    width: auto;
+    max-width: 44%;
+    object-fit: contain;
+    z-index: 2;
+    filter: drop-shadow(0 20px 60px rgba(0, 212, 255, 0.35));
+    pointer-events: none;
+}
+
+/* ===== BRANDS SECTION ===== */
+.brands-section {
+    background: var(--primary);
+    padding: 36px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.brands-section::before {
+    display: none !important;
+}
+
+.brands-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.brand-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 24px;
+    filter: grayscale(1) brightness(0.6);
+    transition: filter 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.brand-item:hover {
+    filter: grayscale(0) brightness(1);
+    transform: scale(1.12);
+}
+
+.brand-item img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+    max-width: 100px;
+}
+
+/* ===== SERVICE ICON IMAGES ===== */
+.service-icon img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+    transition: filter 0.3s;
+}
+
+.service-card:hover .service-icon img {
+    filter: brightness(0) invert(1);
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
 
@@ -1132,6 +1200,16 @@ section {
     .carousel-caption-custom {
         max-width: 85%;
         left: 5%;
+    }
+
+    .carousel-product-img {
+        height: 260px;
+        right: 2%;
+        opacity: 0.4;
+    }
+
+    .brand-item img {
+        height: 36px;
     }
 
     section {
@@ -1173,6 +1251,11 @@ section {
 
     .carousel-caption-custom .tag {
         font-size: 10px;
+    }
+
+    .carousel-product-img {
+        height: 190px;
+        opacity: 0.25;
     }
 }
 
