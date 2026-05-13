@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech-Zone | Điện Thoại & Điện Tử Chính Hãng</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body data-spy="scroll" data-target="#mainNav" data-offset="70">
+    <nav class="navbar navbar-default navbar-fixed-top" id="mainNav">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarMain">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <span class="brand-logo-box">TZ</span>
+                    <span class="brand-name">Tech<span>Zone</span></span>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== BANNER ===== -->
+    <section id="bannerSection" style="padding-top:50px;">
+        <div id="mainCarousel" class="carousel slide" data-ride="carousel" data-interval="4500">
+            <ol class="carousel-indicators">
+                <li data-target="#mainCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#mainCarousel" data-slide-to="1"></li>
+                <li data-target="#mainCarousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <div class="carousel-bg"
+                        style="background:linear-gradient(135deg,#0a1628 0%,#0a2a5e 40%,#0d3a7a 100%);"></div>
+                    <div class="carousel-caption-custom">
+                        <span class="tag">New Arrival 2025</span>
+                        <h2>iPhone 16 Pro<br><span>Titanium Series</span></h2>
+                        <p>Chip A18 Pro mạnh nhất từ trước đến nay. Camera 48MP thế hệ mới.</p>
+                        <a href="product.html" class="btn-accent">Khám phá ngay</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="carousel-bg"
+                        style="background:linear-gradient(135deg,#0a1628 0%,#1a0a3e 40%,#2d1060 100%);"></div>
+                    <div class="carousel-caption-custom">
+                        <span class="tag">Best Seller</span>
+                        <h2>Samsung Galaxy<br><span>S25 Ultra</span></h2>
+                        <p>Màn hình Dynamic AMOLED 2X. S Pen tích hợp AI thông minh.</p>
+                        <a href="product.html" class="btn-accent">Mua ngay</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="carousel-bg"
+                        style="background:linear-gradient(135deg,#0a1628 0%,#002a1e 40%,#004d38 100%);"></div>
+                    <div class="carousel-caption-custom">
+                        <span class="tag">Hot Deal</span>
+                        <h2>MacBook Air<br><span>M3 Chip</span></h2>
+                        <p>Siêu mỏng, siêu nhẹ. Hiệu năng vượt trội, pin 18 giờ liên tục.</p>
+                        <a href="product.html" class="btn-accent">Xem ưu đãi</a>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="left carousel-control" data-target="#mainCarousel" data-slide="prev"
+                style="border:none;background:none;cursor:pointer;">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </button>
+            <button type="button" class="right carousel-control" data-target="#mainCarousel" data-slide="next"
+                style="border:none;background:none;cursor:pointer;">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </button>
+        </div>
+        <!-- Search Bar -->
+        <div class="banner-search-bar">
+            <div class="container">
+                <form id="searchForm">
+                    <div class="input-group" style="max-width:600px;margin:0 auto;">
+                        <input type="text" id="searchInput" class="form-control"
+                            placeholder="Tìm kiếm iPhone, Samsung, Laptop..." />
+                        <span class="input-group-btn">
+                            <button class="btn btn-search" type="submit">
+                                <span class="glyphicon glyphicon-search"></span> Tìm kiếm
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 fade-up">
+                    <span class="section-label">Về chúng tôi</span>
+                    <h2 class="section-title">Tech-Zone — Điểm đến <span>công nghệ</span> đáng tin</h2>
+                    <div class="divider"></div>
+                    <p style="color:var(--muted);line-height:1.8;margin-bottom:16px;">Tech-Zone là hệ thống bán lẻ điện
+                        thoại và thiết bị điện tử hàng đầu tại TP.HCM, với hơn <strong style="color:var(--accent)">10
+                            năm kinh nghiệm</strong> phục vụ hàng triệu khách hàng. Chúng tôi cam kết cung cấp sản phẩm
+                        chính hãng, giá tốt nhất và dịch vụ hậu mãi uy tín.</p>
+                    <p style="color:var(--muted);line-height:1.8;margin-bottom:28px;">Từ những chiếc điện thoại thông
+                        minh cao cấp đến laptop, tablet, phụ kiện công nghệ — tất cả đều có mặt tại Tech-Zone với chính
+                        sách bảo hành minh bạch và hỗ trợ 24/7.</p>
+                    <div class="about-stat-box">
+                        <div class="stat-item">
+                            <div class="stat-num">500K+</div>
+                            <div class="stat-label">Khách hàng</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-num">50+</div>
+                            <div class="stat-label">Chi nhánh</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-num">2000+</div>
+                            <div class="stat-label">Sản phẩm</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-num">10+</div>
+                            <div class="stat-label">Năm KN</div>
+                        </div>
+                    </div>
+                    <a href="about.html" class="btn-outline-accent">Tìm hiểu thêm</a>
+                </div>
+                <div class="col-md-4 fade-up">
+                    <div class="about-img-wrap">
+                        <div
+                            style="width:100%;height:320px;background:linear-gradient(135deg,#0f2044,#1a3a6b);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:80px;border:1px solid var(--border);">
+                            📱</div>
+                        <div class="about-img-badge">Chính Hãng 100%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section id="services" style="background:var(--primary);">
+        <div class="container">
+            <div class="text-center fade-up">
+                <span class="section-label">Dịch vụ</span>
+                <h2 class="section-title">Dịch vụ <span>nổi bật</span></h2>
+                <div class="divider center"></div>
+                <p class="section-sub">Hệ sinh thái dịch vụ toàn diện, đồng hành cùng bạn từ khi mua đến suốt quá trình
+                    sử dụng.</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-6" style="margin-bottom:24px;">
+                    <div class="service-card fade-up">
+                        <div class="service-icon"><span class="glyphicon glyphicon-phone"></span></div>
+                        <h4>Điện Thoại Chính Hãng</h4>
+                        <p>iPhone, Samsung, Xiaomi, OPPO... đủ mọi phân khúc giá. Cam kết hàng chính hãng, tem đầy đủ,
+                            bảo hành hãng.</p><a class="link-detail" href="service1.html">Xem chi tiết →</a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6" style="margin-bottom:24px;">
+                    <div class="service-card fade-up">
+                        <div class="service-icon"><span class="glyphicon glyphicon-laptop"></span></div>
+                        <h4>Laptop & Máy Tính</h4>
+                        <p>MacBook, Dell, HP, ASUS, Lenovo — laptop văn phòng đến gaming. Tư vấn miễn phí, cấu hình theo
+                            nhu cầu.</p><a class="link-detail" href="service2.html">Xem chi tiết →</a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6" style="margin-bottom:24px;">
+                    <div class="service-card fade-up">
+                        <div class="service-icon"><span class="glyphicon glyphicon-headphones"></span></div>
+                        <h4>Phụ Kiện Công Nghệ</h4>
+                        <p>Tai nghe, đồng hồ thông minh, sạc nhanh, ốp lưng, cáp — phụ kiện chính hãng giá tốt nhất thị
+                            trường.</p><a class="link-detail" href="service3.html">Xem chi tiết →</a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6" style="margin-bottom:24px;">
+                    <div class="service-card fade-up">
+                        <div class="service-icon"><span class="glyphicon glyphicon-wrench"></span></div>
+                        <h4>Sửa Chữa & Bảo Hành</h4>
+                        <p>Trung tâm bảo hành ủy quyền. Thay màn hình, pin, sửa phần mềm nhanh chóng. Bảo hành linh kiện
+                            6 tháng.</p><a class="link-detail" href="service1.html">Xem chi tiết →</a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6" style="margin-bottom:24px;">
+                    <div class="service-card fade-up">
+                        <div class="service-icon"><span class="glyphicon glyphicon-refresh"></span></div>
+                        <h4>Thu Cũ Đổi Mới</h4>
+                        <p>Định giá thiết bị cũ minh bạch, nhanh chóng. Bù giá ngay khi mua máy mới tại Tech-Zone.</p><a
+                            class="link-detail" href="service2.html">Xem chi tiết →</a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6" style="margin-bottom:24px;">
+                    <div class="service-card fade-up">
+                        <div class="service-icon"><span class="glyphicon glyphicon-credit-card"></span></div>
+                        <h4>Trả Góp 0%</h4>
+                        <p>Hỗ trợ trả góp 0% lãi suất qua thẻ tín dụng và ví điện tử. Thủ tục đơn giản, duyệt nhanh
+                            trong 5 phút.</p><a class="link-detail" href="service3.html">Xem chi tiết →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PORTFOLIO ===== -->
+    <section id="portfolio" style="background:var(--surface);">
+        <div class="container">
+            <div class="text-center fade-up">
+                <span class="section-label">Portfolio</span>
+                <h2 class="section-title">Thành tựu & <span>Dự án</span></h2>
+                <div class="divider center"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4" style="margin-bottom:24px;">
+                    <div class="portfolio-card fade-up">
+                        <div class="portfolio-img-placeholder">🏆</div>
+                        <div class="portfolio-body">
+                            <h5>Top 10 Nhà Bán Lẻ Uy Tín 2024</h5>
+                            <p>Được Hiệp hội Thương mại Điện tử Việt Nam vinh danh top 10 nhà bán lẻ điện tử uy tín
+                                nhất.</p><a class="btn btn-sm-accent" href="about.html">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="margin-bottom:24px;">
+                    <div class="portfolio-card fade-up">
+                        <div class="portfolio-img-placeholder">🌟</div>
+                        <div class="portfolio-body">
+                            <h5>500.000+ Khách Hàng Hài Lòng</h5>
+                            <p>Hơn nửa triệu khách hàng tin tưởng lựa chọn Tech-Zone trong suốt 10 năm hoạt động.</p><a
+                                class="btn btn-sm-accent" href="about.html">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="margin-bottom:24px;">
+                    <div class="portfolio-card fade-up">
+                        <div class="portfolio-img-placeholder">🚀</div>
+                        <div class="portfolio-body">
+                            <h5>Mở Rộng 50 Chi Nhánh Toàn Quốc</h5>
+                            <p>Hệ thống 50 cửa hàng trải dài từ Hà Nội đến Cà Mau, phục vụ khách hàng trên toàn quốc.
+                            </p><a class="btn btn-sm-accent" href="about.html">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonials -->
+            <div class="testimonial-wrap fade-up">
+                <div class="text-center" style="margin-bottom:28px;">
+                    <span class="section-label" style="display:inline-block;">Khách hàng nói gì</span>
+                    <h3 style="font-size:24px;color:var(--text);">Đánh giá từ khách hàng</h3>
+                </div>
+                <div id="testimonialsCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <div class="testimonial-item">
+                                <div class="quote-icon">"</div>
+                                <p>Mua iPhone 15 Pro tại Tech-Zone, giá tốt hơn nơi khác 500k mà vẫn đầy đủ tem chính
+                                    hãng. Nhân viên tư vấn nhiệt tình, giao hàng nhanh. Sẽ quay lại mua tiếp!</p>
+                                <div class="author">Nguyễn Minh Tuấn — TP.HCM</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimonial-item">
+                                <div class="quote-icon">"</div>
+                                <p>Mình mang MacBook Air M2 đến sửa pin, các bạn kỹ thuật làm rất chuyên nghiệp. Chỉ mất
+                                    2 giờ là có máy lại, bảo hành linh kiện 6 tháng. Rất hài lòng!</p>
+                                <div class="author">Trần Thị Lan Anh — Hà Nội</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimonial-item">
+                                <div class="quote-icon">"</div>
+                                <p>Thu cũ đổi mới tại Tech-Zone rất tiện. Định giá Samsung S22 cũ của mình nhanh, giá
+                                    hợp lý. Bù tiền mua S25 Ultra luôn. Dịch vụ 10/10!</p>
+                                <div class="author">Phạm Quốc Hùng — Đà Nẵng</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="left carousel-control" data-target="#testimonialsCarousel"
+                        data-slide="prev" style="border:none;background:none;cursor:pointer;"><span
+                            class="glyphicon glyphicon-chevron-left" style="color:var(--accent);"></span></button>
+                    <button type="button" class="right carousel-control" data-target="#testimonialsCarousel"
+                        data-slide="next" style="border:none;background:none;cursor:pointer;"><span
+                            class="glyphicon glyphicon-chevron-right" style="color:var(--accent);"></span></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRICING ===== -->
+    <section id="pricing" style="background:var(--primary);">
+        <div class="container">
+            <div class="text-center fade-up">
+                <span class="section-label">Gói dịch vụ</span>
+                <h2 class="section-title">Chọn gói <span>phù hợp</span></h2>
+                <div class="divider center"></div>
+                <p class="section-sub">Đăng ký gói thành viên để nhận ưu đãi độc quyền và hỗ trợ ưu tiên.</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4" style="margin-bottom:24px;">
+                    <div class="pricing-panel fade-up">
+                        <div class="panel-header">
+                            <h4>Basic</h4>
+                            <div class="price">Miễn phí</div>
+                            <div class="price-unit">/ mãi mãi</div>
+                        </div>
+                        <div class="panel-body">
+                            <ul>
+                                <li><span class="glyphicon glyphicon-ok"></span> Mua sắm không giới hạn</li>
+                                <li><span class="glyphicon glyphicon-ok"></span> Bảo hành chính hãng</li>
+                                <li><span class="glyphicon glyphicon-ok"></span> Hỗ trợ qua hotline</li>
+                                <li><span class="glyphicon glyphicon-remove"></span> Ưu đãi thành viên</li>
+                                <li><span class="glyphicon glyphicon-remove"></span> Thu cũ giá cao hơn</li>
+                                <li><span class="glyphicon glyphicon-remove"></span> Hỗ trợ ưu tiên 24/7</li>
+                            </ul>
+                        </div>
+                        <div class="panel-footer-custom"><button class="btn-pricing" data-service="basic"
+                                data-toggle="modal" data-target="#pricingModal">Đăng ký ngay</button></div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="margin-bottom:24px;">
+                    <div class="pricing-panel featured fade-up">
+                        <div class="panel-header">
+                            <div class="plan-badge">Phổ biến nhất</div>
+                            <h4>Pro Member</h4>
+                            <div class="price">199K</div>
+                            <div class="price-unit">/ năm</div>
+                        </div>
+                        <div class="panel-body">
+                            <ul>
+                                <li><span class="glyphicon glyphicon-ok"></span> Mua sắm không giới hạn</li>
+                                <li><span class="glyphicon glyphicon-ok"></span> Bảo hành chính hãng</li>
+                                <li><span class="glyphicon glyphicon-ok"></span> Hỗ trợ qua hotline</li>
+                                <li><span class="glyphicon glyphicon-ok"></span> Giảm 5% mọi đơn hàng</li>
+                                <li><span class="glyphicon glyphicon-ok"></span> Thu cũ giá cao hơn 10%</li>
+                                <li><span class="glyphicon glyphicon-remove"></span> Hỗ trợ ưu tiên 24/7</li>
+                            </ul>
+                        </div>
+                        <div class="panel-footer-custom"><button class="btn-pricing" data-service="pro"
+                                data-toggle="modal" data-target="#pricingModal">Đăng ký ngay</button></div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="margin-bottom:24px;">
+                    <div class="pricing-panel fade-up">
+                        <div class="panel-header">
+                            <h4>VIP Elite</h4>
+                            <div class="price">499K</div>
+                            <div class="price-unit">/ năm</div>
+                        </div>
+                        <div class="panel-body">
+                            <ul>
+                                <li><span class="glyphicon glyphicon-ok"></span> Mua sắm không giới hạn</li>
+                                <li><span class="glyphicon glyphicon-ok"></span> Bảo hành chính hãng</li>
+                                <li><span class="glyphicon glyphicon-ok"></span> Hỗ trợ qua hotline</li>
+                                <li><span class="glyphicon glyphicon-ok"></span> Giảm 10% mọi đơn hàng</li>
+                                <li><span class="glyphicon glyphicon-ok"></span> Thu cũ giá cao hơn 20%</li>
+                                <li><span class="glyphicon glyphicon-ok"></span> Hỗ trợ ưu tiên 24/7</li>
+                            </ul>
+                        </div>
+                        <div class="panel-footer-custom"><button class="btn-pricing" data-service="vip"
+                                data-toggle="modal" data-target="#pricingModal">Đăng ký ngay</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" style="background:var(--surface);">
+        <div class="container">
+            <div class="text-center fade-up">
+                <span class="section-label">Liên hệ</span>
+                <h2 class="section-title">Kết nối với <span>Tech-Zone</span></h2>
+                <div class="divider center"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 fade-up">
+                    <div class="contact-info">
+                        <h4>Thông tin liên hệ</h4>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon"><span class="glyphicon glyphicon-map-marker"></span></div>
+                            <div class="contact-info-text"><strong>Địa chỉ</strong><span>123 Nguyễn Huệ, Q.1, TP. Hồ Chí
+                                    Minh</span></div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon"><span class="glyphicon glyphicon-earphone"></span></div>
+                            <div class="contact-info-text"><strong>Hotline</strong><span>1800 6789 (Miễn phí, 8:00 -
+                                    22:00)</span></div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon"><span class="glyphicon glyphicon-envelope"></span></div>
+                            <div class="contact-info-text"><strong>Email</strong><span>support@techzone.vn</span></div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon"><span class="glyphicon glyphicon-time"></span></div>
+                            <div class="contact-info-text"><strong>Giờ làm việc</strong><span>Thứ 2 - Chủ nhật: 8:00 -
+                                    22:00</span></div>
+                        </div>
+                        <p style="color:var(--muted);margin-top:16px;font-size:14px;line-height:1.8;">🏪 HCM: 123 Nguyễn
+                            Huệ Q.1 | 456 CMT8 Q.3<br>🏪 HN: 321 Cầu Giấy | 654 Đống Đa<br>🏪 ĐN: 147 Nguyễn Văn Linh
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 fade-up">
+                    <div class="contact-form-wrap">
+                        <h4 style="font-size:20px;color:var(--text);margin-bottom:24px;">Gửi tin nhắn cho chúng tôi</h4>
+                        <form id="contactForm" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="contact-name">Họ tên</label>
+                                <div class="col-sm-9"><input type="text" id="contact-name"
+                                        class="form-control form-control-dark" placeholder="Nguyễn Văn A" /><span
+                                        class="error-msg contact-error" id="err-contact-name"></span></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="contact-email">Email</label>
+                                <div class="col-sm-9"><input type="email" id="contact-email"
+                                        class="form-control form-control-dark" placeholder="email@example.com" /><span
+                                        class="error-msg contact-error" id="err-contact-email"></span></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="contact-message">Nội dung</label>
+                                <div class="col-sm-9"><textarea id="contact-message"
+                                        class="form-control form-control-dark" rows="4"
+                                        placeholder="Nội dung tin nhắn (tối thiểu 20 ký tự)..."></textarea><span
+                                        class="error-msg contact-error" id="err-contact-msg"></span></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-9"><button type="submit" class="btn-pricing"
+                                        style="width:auto;padding:12px 32px;"><span
+                                            class="glyphicon glyphicon-send"></span> Gửi tin nhắn</button></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4" style="margin-bottom:32px;">
+                    <div class="footer-brand">
+                        <h3>Tech<span>Zone</span></h3>
+                        <p>Hệ thống bán lẻ điện thoại và thiết bị điện tử hàng đầu Việt Nam.</p>
+                        <div class="social-links">
+                            <a class="social-btn" href="#"><span class="glyphicon glyphicon-thumbs-up"></span></a>
+                            <a class="social-btn" href="#"><span class="glyphicon glyphicon-retweet"></span></a>
+                            <a class="social-btn" href="#"><span class="glyphicon glyphicon-film"></span></a>
+                            <a class="social-btn" href="#"><span class="glyphicon glyphicon-camera"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 footer-col" style="margin-bottom:32px;">
+                    <h5>Sản phẩm</h5>
+                    <ul>
+                        <li><a href="product.html">Điện thoại</a></li>
+                        <li><a href="product.html">Laptop</a></li>
+                        <li><a href="product.html">Tablet</a></li>
+                        <li><a href="product.html">Phụ kiện</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-col" style="margin-bottom:32px;">
+                    <h5>Dịch vụ</h5>
+                    <ul>
+                        <li><a href="service1.html">Bảo hành & Sửa chữa</a></li>
+                        <li><a href="service2.html">Thu cũ đổi mới</a></li>
+                        <li><a href="service3.html">Trả góp 0%</a></li>
+                        <li><a href="about.html">Về Tech-Zone</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-col" style="margin-bottom:32px;">
+                    <h5>Hỗ trợ</h5>
+                    <ul>
+                        <li><a href="#contact">Liên hệ</a></li>
+                        <li><a href="#">Chính sách bảo hành</a></li>
+                        <li><a href="#">Chính sách đổi trả</a></li>
+                        <li><a href="#">Câu hỏi thường gặp</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>© 2025 Tech-Zone. Bản quyền thuộc về Tech-Zone Vietnam.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== PRICING MODAL ===== -->
+    <div class="modal fade" id="pricingModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                    <h4 class="modal-title"><span class="glyphicon glyphicon-star"></span> Đăng ký gói dịch vụ</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="modalForm">
+                        <div class="form-group"><label>Họ và tên *</label><input type="text" id="modal-name"
+                                class="form-control form-control-dark" placeholder="Nhập họ và tên" /><span
+                                class="error-msg modal-error" id="err-modal-name"></span></div>
+                        <div class="form-group"><label>Số điện thoại *</label><input type="tel" id="modal-phone"
+                                class="form-control form-control-dark" placeholder="VD: 0901 234 567" /><span
+                                class="error-msg modal-error" id="err-modal-phone"></span></div>
+                        <div class="form-group"><label>Email *</label><input type="email" id="modal-email"
+                                class="form-control form-control-dark" placeholder="email@example.com" /><span
+                                class="error-msg modal-error" id="err-modal-email"></span></div>
+                        <div class="form-group checkbox-group">
+                            <label>Gói dịch vụ quan tâm * (chọn ít nhất 1)</label>
+                            <div class="checkbox"><label><input type="checkbox" id="chk-basic" value="basic" /> Gói
+                                    Basic (Miễn phí)</label></div>
+                            <div class="checkbox"><label><input type="checkbox" id="chk-pro" value="pro" /> Gói Pro
+                                    Member (199K/năm)</label></div>
+                            <div class="checkbox"><label><input type="checkbox" id="chk-vip" value="vip" /> Gói VIP
+                                    Elite (499K/năm)</label></div>
+                            <div class="checkbox"><label><input type="checkbox" id="chk-repair" value="repair" /> Dịch
+                                    vụ Sửa chữa & Bảo hành</label></div>
+                            <span class="error-msg modal-error" id="err-modal-chk"></span>
+                        </div>
+                        <div class="form-group"><label>Yêu cầu khác</label><textarea id="modal-note"
+                                class="form-control form-control-dark" rows="3"
+                                placeholder="Mô tả thêm yêu cầu của bạn..."></textarea></div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"
+                        style="background:transparent;color:var(--muted);border:1px solid var(--border);"><span
+                            class="glyphicon glyphicon-remove"></span> Đóng</button>
+                    <button type="button" id="btnModalSubmit" class="btn-pricing"
+                        style="width:auto;padding:10px 28px;display:inline-block;"><span
+                            class="glyphicon glyphicon-send"></span> Gửi đăng ký</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

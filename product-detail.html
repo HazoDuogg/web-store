@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi tiết sản phẩm | Tech-Zone</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+        .spec-table td {
+            color: var(--muted);
+            font-size: 14px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .spec-table td:first-child {
+            color: var(--text);
+            font-weight: 600;
+            width: 180px;
+        }
+
+        .tab-nav {
+            display: flex;
+            gap: 4px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 24px;
+        }
+
+        .tab-nav button {
+            background: none;
+            border: none;
+            color: var(--muted);
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 12px 20px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .tab-nav button.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        .tab-content-panel {
+            display: none;
+        }
+
+        .tab-content-panel.active {
+            display: block;
+        }
+
+        .qty-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .qty-btn {
+            width: 36px;
+            height: 36px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-size: 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: border-color 0.3s;
+        }
+
+        .qty-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        #qty {
+            width: 50px;
+            text-align: center;
+            background: transparent;
+            border: none;
+            color: var(--text);
+            font-size: 16px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-default navbar-fixed-top" id="mainNav">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarMain">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <span class="brand-logo-box">TZ</span>
+                    <span class="brand-name">Tech<span>Zone</span></span>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="product.html">Sản phẩm</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div style="padding-top:80px; background:var(--primary); min-height:100vh;">
+        <div class="container" style="padding-bottom:64px;">
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb" style="margin-bottom:28px;">
+                <ol class="breadcrumb" style="background:transparent;padding:0;">
+                    <li class="breadcrumb-item"><a href="index.html" style="color:var(--accent);">Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a href="product.html" style="color:var(--accent);">Sản phẩm</a></li>
+                    <li class="breadcrumb-item active" style="color:var(--muted);" id="bcName">Chi tiết</li>
+                </ol>
+            </nav>
+
+            <div class="row">
+                <!-- Image -->
+                <div class="col-md-5" style="margin-bottom:32px;">
+                    <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;height:360px;display:flex;align-items:center;justify-content:center;font-size:120px;"
+                        id="prodIcon">📱</div>
+                    <!-- Thumbnail strip -->
+                    <div style="display:flex;gap:10px;margin-top:14px;">
+                        <div style="width:70px;height:70px;background:var(--card);border:1px solid var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:28px;"
+                            id="thumb1">📱</div>
+                        <div style="width:70px;height:70px;background:var(--card);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:28px;cursor:pointer;"
+                            id="thumb2">📦</div>
+                        <div style="width:70px;height:70px;background:var(--card);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:28px;cursor:pointer;"
+                            id="thumb3">🎁</div>
+                    </div>
+                </div>
+
+                <!-- Info -->
+                <div class="col-md-7">
+                    <span class="section-label" id="prodCat">Điện thoại</span>
+                    <h1 style="font-size:30px;color:var(--text);margin-bottom:12px;" id="prodName">iPhone 16 Pro Max
+                        256GB</h1>
+                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+                        <div style="color:#f5c518;font-size:15px;">★★★★★</div>
+                        <span style="color:var(--muted);font-size:13px;">(128 đánh giá)</span>
+                        <span style="color:#4caf50;font-size:13px;"><span class="glyphicon glyphicon-ok-sign"></span>
+                            Còn hàng</span>
+                    </div>
+                    <div style="font-family:'Rajdhani',sans-serif;font-size:38px;font-weight:700;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px;"
+                        id="prodPrice">32.990.000 đ</div>
+                    <div style="color:var(--muted);font-size:14px;text-decoration:line-through;margin-bottom:20px;"
+                        id="prodOld">35.990.000 đ</div>
+
+                    <!-- Color options -->
+                    <div style="margin-bottom:20px;">
+                        <p style="color:var(--muted);font-size:13px;font-weight:600;margin-bottom:10px;">MÀU SẮC</p>
+                        <div style="display:flex;gap:10px;">
+                            <div onclick="selectColor(this,'#1c1c1e')"
+                                style="width:32px;height:32px;background:#1c1c1e;border-radius:50%;border:2px solid var(--accent);cursor:pointer;">
+                            </div>
+                            <div onclick="selectColor(this,'#e8e8e3')"
+                                style="width:32px;height:32px;background:#e8e8e3;border-radius:50%;border:2px solid var(--border);cursor:pointer;">
+                            </div>
+                            <div onclick="selectColor(this,'#3d2b1f')"
+                                style="width:32px;height:32px;background:#3d2b1f;border-radius:50%;border:2px solid var(--border);cursor:pointer;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Storage -->
+                    <div style="margin-bottom:24px;">
+                        <p style="color:var(--muted);font-size:13px;font-weight:600;margin-bottom:10px;">DUNG LƯỢNG</p>
+                        <div style="display:flex;gap:8px;" id="storageOptions">
+                            <button onclick="selectStorage(this,'256GB')"
+                                style="padding:8px 20px;background:rgba(0,212,255,0.1);border:1px solid var(--accent);color:var(--accent);border-radius:6px;font-family:'Rajdhani',sans-serif;font-weight:700;cursor:pointer;">256GB</button>
+                            <button onclick="selectStorage(this,'512GB')"
+                                style="padding:8px 20px;background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:6px;font-family:'Rajdhani',sans-serif;font-weight:700;cursor:pointer;">512GB</button>
+                            <button onclick="selectStorage(this,'1TB')"
+                                style="padding:8px 20px;background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:6px;font-family:'Rajdhani',sans-serif;font-weight:700;cursor:pointer;">1TB</button>
+                        </div>
+                    </div>
+
+                    <!-- Quantity -->
+                    <div class="qty-box">
+                        <span style="color:var(--muted);font-size:13px;font-weight:600;">SỐ LƯỢNG</span>
+                        <button class="qty-btn" onclick="changeQty(-1)">−</button>
+                        <input type="number" id="qty" value="1" min="1" max="10" readonly />
+                        <button class="qty-btn" onclick="changeQty(1)">+</button>
+                    </div>
+
+                    <!-- Actions -->
+                    <div style="display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap;">
+                        <button onclick="buyNow()"
+                            style="flex:1;min-width:160px;background:var(--gradient);color:#fff;border:none;padding:14px;border-radius:8px;font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:700;cursor:pointer;letter-spacing:1px;">
+                            <span class="glyphicon glyphicon-shopping-cart"></span> Mua ngay
+                        </button>
+                        <button
+                            style="width:50px;height:50px;background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:8px;cursor:pointer;font-size:20px;transition:all 0.3s;"
+                            onmouseenter="this.style.borderColor='#ff6b6b';this.style.color='#ff6b6b'"
+                            onmouseleave="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">♡</button>
+                    </div>
+
+                    <!-- Guarantees -->
+                    <div
+                        style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;display:flex;gap:20px;flex-wrap:wrap;">
+                        <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);">
+                            <span style="color:var(--accent);">✓</span> Hàng chính hãng
+                        </div>
+                        <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);">
+                            <span style="color:var(--accent);">✓</span> Bảo hành 12 tháng
+                        </div>
+                        <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);">
+                            <span style="color:var(--accent);">✓</span> Đổi trả 30 ngày
+                        </div>
+                        <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);">
+                            <span style="color:var(--accent);">✓</span> Giao hàng nhanh 2h
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top:48px;">
+                <div class="tab-nav">
+                    <button class="active" onclick="switchTab('specs',this)">Thông số kỹ thuật</button>
+                    <button onclick="switchTab('desc',this)">Mô tả sản phẩm</button>
+                    <button onclick="switchTab('reviews',this)">Đánh giá (128)</button>
+                </div>
+
+                <div id="tab-specs" class="tab-content-panel active">
+                    <table class="spec-table" style="width:100%;max-width:600px;">
+                        <tr>
+                            <td>Màn hình</td>
+                            <td>6.9" Super Retina XDR OLED, 2868×1320px, 460ppi</td>
+                        </tr>
+                        <tr>
+                            <td>Chip</td>
+                            <td>Apple A18 Pro (3nm), 6 nhân CPU</td>
+                        </tr>
+                        <tr>
+                            <td>RAM</td>
+                            <td>8GB</td>
+                        </tr>
+                        <tr>
+                            <td>Bộ nhớ trong</td>
+                            <td>256GB / 512GB / 1TB</td>
+                        </tr>
+                        <tr>
+                            <td>Camera sau</td>
+                            <td>48MP Fusion + 48MP Ultra Wide + 12MP Telephoto</td>
+                        </tr>
+                        <tr>
+                            <td>Camera trước</td>
+                            <td>12MP TrueDepth</td>
+                        </tr>
+                        <tr>
+                            <td>Pin</td>
+                            <td>4685 mAh, sạc nhanh 27W, MagSafe 25W</td>
+                        </tr>
+                        <tr>
+                            <td>Hệ điều hành</td>
+                            <td>iOS 18</td>
+                        </tr>
+                        <tr>
+                            <td>Kết nối</td>
+                            <td>5G, Wi-Fi 7, Bluetooth 5.3, USB-C 3.2</td>
+                        </tr>
+                        <tr>
+                            <td>Màu sắc</td>
+                            <td>Black Titanium, White Titanium, Desert Titanium</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div id="tab-desc" class="tab-content-panel">
+                    <div style="color:var(--muted);line-height:1.9;max-width:700px;">
+                        <p style="margin-bottom:14px;">iPhone 16 Pro Max là đỉnh cao công nghệ của Apple năm 2024, mang
+                            đến trải nghiệm hoàn toàn mới với chip A18 Pro mạnh mẽ, hệ thống camera được nâng cấp vượt
+                            bậc và màn hình lớn hơn bao giờ hết.</p>
+                        <p style="margin-bottom:14px;">Camera Control — phím bấm chuyên dụng cho nhiếp ảnh — mang đến
+                            cách chụp ảnh, quay video hoàn toàn mới. Kết hợp với hệ thống camera được AI tối ưu, bạn có
+                            thể quay video 4K120fps với Log video tiêu chuẩn điện ảnh.</p>
+                        <p>Khung titanium cấp hàng không vũ trụ, kính ceramic shield thế hệ 2 giúp máy bền bỉ hơn 50% so
+                            với thế hệ trước. iOS 18 với tính năng Apple Intelligence mang AI vào mọi tác vụ hàng ngày.
+                        </p>
+                    </div>
+                </div>
+
+                <div id="tab-reviews" class="tab-content-panel">
+                    <div style="max-width:640px;">
+                        <div
+                            style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;margin-bottom:16px;">
+                            <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+                                <strong style="color:var(--text);">Nguyễn Minh Khoa</strong>
+                                <span style="color:#f5c518;">★★★★★</span>
+                            </div>
+                            <p style="color:var(--muted);font-size:14px;margin:0;">Máy quá đẹp, camera chụp cực kỳ sắc
+                                nét. Mua ở Tech-Zone được giá tốt hơn nhiều nơi khác, ship nhanh trong 2 tiếng. Rất hài
+                                lòng!</p>
+                        </div>
+                        <div
+                            style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;margin-bottom:16px;">
+                            <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+                                <strong style="color:var(--text);">Trần Hạnh Chi</strong>
+                                <span style="color:#f5c518;">★★★★☆</span>
+                            </div>
+                            <p style="color:var(--muted);font-size:14px;margin:0;">Điện thoại tuyệt vời, hiệu năng mạnh
+                                mẽ. Chỉ tiếc là giá hơi cao nhưng so với cấu hình thì xứng đáng. Cảm ơn Tech-Zone tư vấn
+                                nhiệt tình.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+        <div class="footer-bottom">
+            <div class="container">
+                <p>© 2025 Tech-Zone. Bản quyền thuộc về Tech-Zone Vietnam.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        function switchTab(id, btn) {
+            $('.tab-content-panel').removeClass('active');
+            $('.tab-nav button').removeClass('active');
+            $('#tab-' + id).addClass('active');
+            $(btn).addClass('active');
+        }
+        function changeQty(delta) {
+            var v = parseInt($('#qty').val()) + delta;
+            if (v < 1) v = 1;
+            if (v > 10) v = 10;
+            $('#qty').val(v);
+        }
+        function selectColor(el, color) {
+            $('[onclick^="selectColor"]').css('border-color', 'var(--border)');
+            $(el).css('border-color', 'var(--accent)');
+        }
+        function selectStorage(el, val) {
+            $('#storageOptions button').each(function () {
+                $(this).css({ background: 'transparent', 'border-color': 'var(--border)', color: 'var(--muted)' });
+            });
+            $(el).css({ background: 'rgba(0,212,255,0.1)', 'border-color': 'var(--accent)', color: 'var(--accent)' });
+        }
+        function buyNow() {
+            alert('Sản phẩm đã được thêm vào giỏ hàng! Tech-Zone sẽ liên hệ xác nhận đơn hàng sớm nhất.');
+        }
+    </script>
+</body>
+
+</html>

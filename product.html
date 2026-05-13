@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sản phẩm | Tech-Zone</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+        .product-grid-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-grid-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0, 212, 255, 0.12);
+            border-color: var(--accent);
+        }
+
+        .product-thumb {
+            height: 200px;
+            background: linear-gradient(135deg, #0f2044, #162a50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            position: relative;
+        }
+
+        .badge-sale {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--accent2);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-family: 'Rajdhani', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .product-info {
+            padding: 18px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-info h5 {
+            color: var(--text);
+            font-size: 15px;
+            margin-bottom: 6px;
+        }
+
+        .product-price {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 4px;
+        }
+
+        .product-price-old {
+            color: var(--muted);
+            font-size: 13px;
+            text-decoration: line-through;
+            margin-bottom: 12px;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: auto;
+        }
+
+        .btn-buy {
+            flex: 1;
+            background: var(--gradient);
+            color: #fff;
+            border: none;
+            padding: 9px;
+            border-radius: 6px;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .btn-buy:hover {
+            opacity: 0.82;
+        }
+
+        .btn-detail {
+            flex: 1;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--muted);
+            padding: 9px;
+            border-radius: 6px;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-detail:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .filter-bar {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 28px;
+        }
+
+        .filter-bar .form-control {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        /* Cart sidebar */
+        #cartPanel {
+            position: fixed;
+            right: -320px;
+            top: 60px;
+            bottom: 0;
+            width: 320px;
+            background: var(--card);
+            border-left: 1px solid var(--border);
+            z-index: 999;
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #cartPanel.open {
+            right: 0;
+        }
+
+        #cartToggle {
+            position: fixed;
+            right: 20px;
+            bottom: 24px;
+            width: 54px;
+            height: 54px;
+            background: var(--gradient);
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 22px;
+            cursor: pointer;
+            z-index: 1001;
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            background: var(--accent2);
+            color: #fff;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            font-size: 11px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-header {
+            padding: 18px 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cart-header h5 {
+            color: var(--text);
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 12px 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .cart-item-icon {
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+
+        .cart-item-name {
+            color: var(--text);
+            font-size: 13px;
+            flex: 1;
+        }
+
+        .cart-item-price {
+            color: var(--accent);
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .cart-item-rm {
+            background: none;
+            border: none;
+            color: var(--muted);
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .cart-item-rm:hover {
+            color: #ff6b6b;
+        }
+
+        .cart-footer {
+            padding: 16px 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .cart-total {
+            color: var(--text);
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .empty-cart {
+            text-align: center;
+            color: var(--muted);
+            padding: 32px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-default navbar-fixed-top" id="mainNav">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarMain">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <span class="brand-logo-box">TZ</span>
+                    <span class="brand-name">Tech<span>Zone</span></span>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#portfolio">Portfolio</a></li>
+                    <li><a href="index.html#pricing">Pricing</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <div
+        style="padding-top:60px; background:linear-gradient(135deg,#0a1628,#0f2044); padding-bottom:40px; border-bottom:1px solid var(--border);">
+        <div class="container" style="padding-top:32px;">
+            <span class="section-label">Danh mục sản phẩm</span>
+            <h1 class="section-title" style="font-size:40px;">Tất cả <span>sản phẩm</span></h1>
+            <nav aria-label="breadcrumb" style="margin-top:12px;">
+                <ol class="breadcrumb" style="background:transparent;padding:0;margin:0;">
+                    <li class="breadcrumb-item"><a href="index.html" style="color:var(--accent);">Trang chủ</a></li>
+                    <li class="breadcrumb-item active" style="color:var(--muted);">Sản phẩm</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- PRODUCTS -->
+    <section style="background:var(--primary); padding:56px 0;">
+        <div class="container">
+            <!-- Filter bar -->
+            <div class="filter-bar">
+                <div class="row align-items-center">
+                    <div class="col-md-4" style="margin-bottom:12px;">
+                        <input type="text" id="filterSearch" class="form-control form-control-dark"
+                            placeholder="Tìm sản phẩm..." />
+                    </div>
+                    <div class="col-md-3" style="margin-bottom:12px;">
+                        <select id="filterCat" class="form-control form-control-dark">
+                            <option value="">Tất cả danh mục</option>
+                            <option value="phone">Điện thoại</option>
+                            <option value="laptop">Laptop</option>
+                            <option value="tablet">Tablet</option>
+                            <option value="accessory">Phụ kiện</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3" style="margin-bottom:12px;">
+                        <select id="filterSort" class="form-control form-control-dark">
+                            <option value="">Sắp xếp</option>
+                            <option value="asc">Giá tăng dần</option>
+                            <option value="desc">Giá giảm dần</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2" style="margin-bottom:12px;">
+                        <span id="productCount" style="color:var(--muted);font-size:14px;"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product grid -->
+            <div class="row" id="productGrid">
+                <!-- Products rendered by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+        <div class="footer-bottom">
+            <div class="container">
+                <p>© 2025 Tech-Zone. Bản quyền thuộc về Tech-Zone Vietnam.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CART TOGGLE BUTTON -->
+    <button id="cartToggle" style="position:fixed;right:20px;bottom:24px;">
+        <span class="glyphicon glyphicon-shopping-cart"></span>
+        <span class="cart-badge" id="cartCount">0</span>
+    </button>
+
+    <!-- CART PANEL -->
+    <div id="cartPanel">
+        <div class="cart-header">
+            <h5><span class="glyphicon glyphicon-shopping-cart"></span> Giỏ hàng</h5>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="empty-cart">Giỏ hàng trống 🛒</div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total" id="cartTotal">Tổng: 0 đ</div>
+            <button class="btn-pricing" onclick="checkout()" style="width:100%;">
+                <span class="glyphicon glyphicon-ok-circle"></span> Thanh toán
+            </button>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // ===== PRODUCT DATA =====
+        var products = [
+            { id: 1, name: 'iPhone 16 Pro Max 256GB', cat: 'phone', price: 32990000, oldPrice: 35990000, icon: '📱', sale: 'Giảm 8%' },
+            { id: 2, name: 'Samsung Galaxy S25 Ultra', cat: 'phone', price: 29990000, oldPrice: 33990000, icon: '📱', sale: 'HOT' },
+            { id: 3, name: 'Xiaomi 14 Ultra 512GB', cat: 'phone', price: 18990000, oldPrice: 21990000, icon: '📱', sale: '' },
+            { id: 4, name: 'OPPO Find X8 Pro', cat: 'phone', price: 22990000, oldPrice: 25990000, icon: '📱', sale: '' },
+            { id: 5, name: 'MacBook Air M3 15"', cat: 'laptop', price: 34990000, oldPrice: 38990000, icon: '💻', sale: 'Giảm 10%' },
+            { id: 6, name: 'Dell XPS 13 Plus', cat: 'laptop', price: 28990000, oldPrice: 31990000, icon: '💻', sale: '' },
+            { id: 7, name: 'ASUS ROG Zephyrus G16', cat: 'laptop', price: 42990000, oldPrice: 47990000, icon: '💻', sale: 'Gaming' },
+            { id: 8, name: 'iPad Pro M4 11"', cat: 'tablet', price: 23990000, oldPrice: 27990000, icon: '📟', sale: '' },
+            { id: 9, name: 'Samsung Tab S10 Ultra', cat: 'tablet', price: 19990000, oldPrice: 22990000, icon: '📟', sale: '' },
+            { id: 10, name: 'AirPods Pro 2nd Gen', cat: 'accessory', price: 5490000, oldPrice: 6490000, icon: '🎧', sale: 'Giảm 15%' },
+            { id: 11, name: 'Apple Watch Series 10', cat: 'accessory', price: 11990000, oldPrice: 13490000, icon: '⌚', sale: '' },
+            { id: 12, name: 'Sạc nhanh Anker 140W GaN', cat: 'accessory', price: 890000, oldPrice: 1190000, icon: '🔌', sale: '' },
+        ];
+
+        var cart = [];
+
+        function fmt(n) {
+            return n.toLocaleString('vi-VN') + ' đ';
+        }
+
+        function renderProducts(list) {
+            var html = '';
+            if (list.length === 0) {
+                html = '<div class="col-12" style="text-align:center;color:var(--muted);padding:48px 0;">Không tìm thấy sản phẩm nào.</div>';
+            }
+            list.forEach(function (p) {
+                html += '<div class="col-md-3 col-sm-6" style="margin-bottom:24px;">';
+                html += '<div class="product-grid-card">';
+                html += '  <div class="product-thumb">' + p.icon;
+                if (p.sale) html += '<span class="badge-sale">' + p.sale + '</span>';
+                html += '  </div>';
+                html += '  <div class="product-info">';
+                html += '    <h5>' + p.name + '</h5>';
+                html += '    <div class="product-price">' + fmt(p.price) + '</div>';
+                html += '    <div class="product-price-old">' + fmt(p.oldPrice) + '</div>';
+                html += '    <div class="product-actions">';
+                html += '      <button class="btn-buy" onclick="addToCart(' + p.id + ')"><span class="glyphicon glyphicon-plus"></span> Mua ngay</button>';
+                html += '      <a class="btn-detail" href="product-detail.html?id=' + p.id + '">Chi tiết</a>';
+                html += '    </div>';
+                html += '  </div></div></div>';
+            });
+            $('#productGrid').html(html);
+            $('#productCount').text(list.length + ' sản phẩm');
+        }
+
+        function filterProducts() {
+            var q = $('#filterSearch').val().toLowerCase();
+            var cat = $('#filterCat').val();
+            var sort = $('#filterSort').val();
+            var res = products.filter(function (p) {
+                return (!q || p.name.toLowerCase().includes(q)) && (!cat || p.cat === cat);
+            });
+            if (sort === 'asc') res.sort(function (a, b) { return a.price - b.price; });
+            if (sort === 'desc') res.sort(function (a, b) { return b.price - a.price; });
+            renderProducts(res);
+        }
+
+        function addToCart(id) {
+            var p = products.find(function (x) { return x.id === id; });
+            if (!p) return;
+            var existing = cart.find(function (x) { return x.id === id; });
+            if (existing) { existing.qty++; }
+            else { cart.push({ id: p.id, name: p.name, price: p.price, icon: p.icon, qty: 1 }); }
+            renderCart();
+            $('#cartPanel').addClass('open');
+        }
+
+        function removeFromCart(id) {
+            cart = cart.filter(function (x) { return x.id !== id; });
+            renderCart();
+        }
+
+        function renderCart() {
+            var total = 0;
+            var count = 0;
+            var html = '';
+            if (cart.length === 0) {
+                html = '<div class="empty-cart">Giỏ hàng trống 🛒</div>';
+            } else {
+                cart.forEach(function (item) {
+                    total += item.price * item.qty;
+                    count += item.qty;
+                    html += '<div class="cart-item">';
+                    html += '<div class="cart-item-icon">' + item.icon + '</div>';
+                    html += '<div class="cart-item-name">' + item.name + ' x' + item.qty + '</div>';
+                    html += '<div class="cart-item-price">' + fmt(item.price * item.qty) + '</div>';
+                    html += '<button class="cart-item-rm" onclick="removeFromCart(' + item.id + ')">✕</button>';
+                    html += '</div>';
+                });
+            }
+            $('#cartItems').html(html);
+            $('#cartTotal').text('Tổng: ' + fmt(total));
+            $('#cartCount').text(count);
+        }
+
+        function checkout() {
+            if (cart.length === 0) { alert('Giỏ hàng trống!'); return; }
+            alert('Cảm ơn bạn đã đặt hàng! Tech-Zone sẽ liên hệ trong 30 phút.');
+            cart = [];
+            renderCart();
+            $('#cartPanel').removeClass('open');
+        }
+
+        $(document).ready(function () {
+            renderProducts(products);
+            $('#filterSearch, #filterCat, #filterSort').on('input change', filterProducts);
+            $('#cartToggle').on('click', function () {
+                $('#cartPanel').toggleClass('open');
+            });
+        });
+    </script>
+</body>
+
+</html>
