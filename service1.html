@@ -32,6 +32,22 @@
                     <li><a href="product.html">Sản phẩm</a></li>
                     <li><a href="index.html#pricing">Pricing</a></li>
                     <li><a href="index.html#contact">Contact</a></li>
+                    <li class="nav-auth-show"><a href="#" class="btn-nav-login" data-toggle="modal" data-target="#loginModal">Đăng nhập</a></li>
+                    <li class="nav-auth-show"><a href="#" class="btn-nav-register" data-toggle="modal" data-target="#registerModal">Đăng ký</a></li>
+                    <li class="dropdown nav-user-show" style="display:none;">
+                        <a href="#" class="dropdown-toggle nav-user-info" data-toggle="dropdown" role="button">
+                            <span class="user-avatar-circle">T</span>
+                            <span class="nav-username">User</span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right user-dropdown">
+                            <li class="dropdown-header">Tài khoản của tôi</li>
+                            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Hồ sơ</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Đơn hàng</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#" id="btnLogout"><span class="glyphicon glyphicon-log-out"></span> Đăng xuất</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -39,11 +55,11 @@
 
     <!-- BANNER -->
     <div
-        style="padding-top:60px;background:linear-gradient(135deg,#0a1628,#0f2044);padding-bottom:48px;border-bottom:1px solid var(--border);">
+        style="padding-top:60px;background:linear-gradient(135deg,#eff6ff,#dbeafe);padding-bottom:48px;border-bottom:1px solid var(--border);">
         <div class="container" style="padding-top:32px;">
             <span class="section-label">Dịch vụ</span>
             <div style="margin-bottom:16px;">
-                <img src="images/smartphone.png" alt="Điện thoại" style="height:64px;width:64px;object-fit:contain;background:rgba(0,212,255,0.1);border-radius:16px;padding:10px;border:1px solid var(--border);">
+                <img src="images/smartphone.png" alt="Điện thoại" style="height:64px;width:64px;object-fit:contain;background:rgba(37,99,235,0.1);border-radius:12px;padding:10px;border:1px solid var(--border);">
             </div>
             <h1 class="section-title" style="font-size:42px;">Điện Thoại <span>Chính Hãng</span></h1>
             <p style="color:var(--muted);font-size:15px;max-width:600px;margin-top:8px;">Đầy đủ thương hiệu, đầy đủ phân
@@ -160,6 +176,99 @@
         </div>
     </footer>
 
+    <!-- ===== LOGIN MODAL ===== -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog auth-modal-dialog">
+            <div class="modal-content auth-modal-content">
+                <div class="modal-header auth-modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                    <h4 class="modal-title">Đăng nhập</h4>
+                    <p>Chào mừng trở lại Tech-Zone</p>
+                </div>
+                <div class="modal-body auth-modal-body">
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="login-email">Email</label>
+                            <input type="email" id="login-email" class="form-control form-control-dark" placeholder="email@example.com">
+                            <span class="error-msg" id="err-login-email"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Mật khẩu</label>
+                            <div class="input-password-wrap">
+                                <input type="password" id="login-password" class="form-control form-control-dark" placeholder="Nhập mật khẩu">
+                                <button type="button" class="btn-toggle-pw" tabindex="-1"><span class="glyphicon glyphicon-eye-open"></span></button>
+                            </div>
+                            <span class="error-msg" id="err-login-pw"></span>
+                        </div>
+                        <div class="auth-options">
+                            <label class="checkbox-remember"><input type="checkbox" id="rememberMe"> Ghi nhớ đăng nhập</label>
+                            <a href="#" class="forgot-link" id="forgotPwLink">Quên mật khẩu?</a>
+                        </div>
+                        <button type="submit" class="btn-auth"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</button>
+                    </form>
+                    <div class="auth-divider"><span>hoặc</span></div>
+                    <div class="auth-switch">Chưa có tài khoản? <a href="#" id="switchToRegister">Đăng ký ngay</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ===== REGISTER MODAL ===== -->
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog auth-modal-dialog">
+            <div class="modal-content auth-modal-content">
+                <div class="modal-header auth-modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                    <h4 class="modal-title">Tạo tài khoản</h4>
+                    <p>Tham gia cộng đồng Tech-Zone ngay hôm nay</p>
+                </div>
+                <div class="modal-body auth-modal-body">
+                    <form id="registerForm">
+                        <div class="form-group">
+                            <label for="reg-name">Họ và tên</label>
+                            <input type="text" id="reg-name" class="form-control form-control-dark" placeholder="Nguyễn Văn A">
+                            <span class="error-msg" id="err-reg-name"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-email">Email</label>
+                            <input type="email" id="reg-email" class="form-control form-control-dark" placeholder="email@example.com">
+                            <span class="error-msg" id="err-reg-email"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-phone">Số điện thoại</label>
+                            <input type="tel" id="reg-phone" class="form-control form-control-dark" placeholder="0901 234 567">
+                            <span class="error-msg" id="err-reg-phone"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-password">Mật khẩu</label>
+                            <div class="input-password-wrap">
+                                <input type="password" id="reg-password" class="form-control form-control-dark" placeholder="Ít nhất 6 ký tự">
+                                <button type="button" class="btn-toggle-pw" tabindex="-1"><span class="glyphicon glyphicon-eye-open"></span></button>
+                            </div>
+                            <span class="error-msg" id="err-reg-pw"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-confirm-pw">Xác nhận mật khẩu</label>
+                            <div class="input-password-wrap">
+                                <input type="password" id="reg-confirm-pw" class="form-control form-control-dark" placeholder="Nhập lại mật khẩu">
+                                <button type="button" class="btn-toggle-pw" tabindex="-1"><span class="glyphicon glyphicon-eye-open"></span></button>
+                            </div>
+                            <span class="error-msg" id="err-reg-cpw"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-remember">
+                                <input type="checkbox" id="agreeTerms">
+                                Tôi đồng ý với <a href="#">Điều khoản sử dụng</a> của Tech-Zone
+                            </label>
+                            <span class="error-msg" id="err-reg-terms"></span>
+                        </div>
+                        <button type="submit" class="btn-auth"><span class="glyphicon glyphicon-user"></span> Tạo tài khoản</button>
+                    </form>
+                    <div class="auth-divider"><span>hoặc</span></div>
+                    <div class="auth-switch">Đã có tài khoản? <a href="#" id="switchToLogin">Đăng nhập</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>

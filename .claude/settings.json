@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Select-String -Path \"d:\\\\DH52300467\\\\service1.html\",\"d:\\\\DH52300467\\\\service2.html\",\"d:\\\\DH52300467\\\\service3.html\",\"d:\\\\DH52300467\\\\product.html\",\"d:\\\\DH52300467\\\\product-detail.html\" -Pattern \"0a1628\")",
+      "Bash(Select-Object Filename,LineNumber,Line)"
+    ]
+  }
+}
